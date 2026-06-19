@@ -27,7 +27,7 @@ export default function Header() {
         scrolled ? "shadow-sm py-2" : "py-4"
       }`}
     >
-      <div className="container-wide">
+      <div className="container-wide relative z-50">
         <div className="flex items-center justify-between h-16 md:h-20">
           <div className="opacity-100 hover:opacity-80 transition-opacity duration-300 transform scale-110 origin-left">
             <Logo size="xl" showText={true} />
@@ -72,9 +72,9 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden fixed inset-0 top-[4.5rem] md:top-[5.5rem] bg-white/95 backdrop-blur-xl z-40 border-t border-dark/5"
+            className="md:hidden fixed inset-0 bg-white/95 backdrop-blur-xl z-40 pt-[90px] overflow-y-auto"
           >
-            <nav className="container-wide py-8 flex flex-col gap-1">
+            <nav className="container-wide pb-12 flex flex-col gap-2">
               {mainNav.map((item, i) => (
                 <motion.div
                   key={item.path}
