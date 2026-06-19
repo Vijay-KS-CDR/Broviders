@@ -22,8 +22,9 @@ export default function Header() {
   }, [location]);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 bg-white/80 backdrop-blur-md border-b border-dark/5 ${
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 bg-white/80 backdrop-blur-md border-b border-dark/5 ${
         scrolled ? "shadow-sm py-2" : "py-4"
       }`}
     >
@@ -63,7 +64,8 @@ export default function Header() {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-      </div>
+        </div>
+      </header>
 
       <AnimatePresence>
         {isOpen && (
@@ -72,7 +74,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden fixed inset-0 bg-white/95 backdrop-blur-xl z-40 pt-[90px] overflow-y-auto"
+            className="md:hidden fixed inset-0 bg-white/95 backdrop-blur-xl z-40 pt-[100px] overflow-y-auto"
           >
             <nav className="container-wide pb-12 flex flex-col gap-2">
               {mainNav.map((item, i) => (
@@ -108,6 +110,6 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
